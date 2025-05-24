@@ -1,0 +1,12 @@
+:root {
+
+    --vision-background-color--light-grey: #F5F5F5;
+    --vision-background-color--medium-grey: #EBEBEB;
+    --vision-background-color--dark-grey: #dbdbdb;
+    --vision-background-color--white: white;
+    --vision-background-color--lite-red: rgb(255, 237, 237);
+
+    --vision-color--dark-grey: #535353;
+    --vision-color--black: black;
+
+}

@@ -1,0 +1,57 @@
+
+.selected_frame {
+
+    width: max-content;
+    position: relative;
+
+    display: none;
+
+}
+
+.photo_selected_frame {
+
+    max-width: 175px;
+    max-height: 100px;
+
+    width: 100%;
+    height: calc(100vw * (150/85));
+
+    border-radius: 10px;
+
+    margin-bottom: 5px;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+
+}
+
+.time_selected_frame {
+
+    display: block;
+
+    text-align: center;
+
+    font-size: small;
+    color: white;
+
+    user-select: none;
+
+}
+
+@keyframes appearSelectedFrame {
+    from {
+        opacity: 0;
+        display: inline-block;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes disappearSelectedFrame {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

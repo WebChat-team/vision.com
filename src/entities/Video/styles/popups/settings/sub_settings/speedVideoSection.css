@@ -1,0 +1,98 @@
+.value_speed_video {
+
+    text-align: center;
+    font-weight: bold;
+
+    margin: 0 auto;
+
+}
+
+.input_speed_video,
+.suffix_input_speed_video {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input_speed_video {
+
+    background-color: transparent;
+
+    text-align: right;
+
+    border: none;
+    width: min-content;
+
+    min-width: 1ch;
+
+}
+
+.input_speed_video::-webkit-outer-spin-button,
+.input_speed_video::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input_speed_video,
+.input_speed_video:hover,
+.input_speed_video:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+
+.input_speed_video:focus .suffix_input_speed_video {
+    display: none;
+}
+
+.slider_speed_video {
+
+    display: block;
+    width: 100%;
+
+    margin-top: 10px;
+
+    accent-color: black;
+    background-color: green;
+    border: none;
+
+}
+
+.liner {
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+} 
+
+.container_speed_items {
+
+    margin-top: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+}
+
+.speed_item {
+
+    flex: 1;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(238, 238, 238);
+    outline: none;
+
+    border-radius: 20px;
+
+}
+.speed_item:hover {
+    border-color: rgb(137, 137, 137);
+}

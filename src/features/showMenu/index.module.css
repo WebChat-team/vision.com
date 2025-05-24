@@ -1,0 +1,21 @@
+/* show menu button ========================================= */
+.show_menu_button {
+
+    height: 100%;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+    padding: 15px 16px;
+
+    border: 1px solid var(--vision-background-color--light-grey);
+    background-color: var(--vision-background-color--light-grey);
+
+    transition: border-color .15s linear;
+
+    cursor: pointer;
+
+}
+.show_menu_button:hover {
+    border-color: var(--vision-color--black);
+}

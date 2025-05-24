@@ -1,0 +1,45 @@
+
+.list_previews {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+}
+
+.list_previews > * {
+
+    flex: 0 1 49%;
+
+}
+
+@media screen and (max-width: 1024px) {
+    
+    .list_previews {
+        padding: 0 10px;
+        gap: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    
+    .list_previews {
+        padding: 0 10px;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    .list_previews {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+        gap: 20px;
+    }
+
+    .list_previews > * {
+        flex: 0 10 100%;
+    }
+
+}

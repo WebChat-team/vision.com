@@ -1,0 +1,42 @@
+.player_button {
+
+    position: relative;
+
+    box-sizing: border-box;
+    padding: 17px;
+
+    font-size: inherit;
+
+    border: none;
+
+    color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+
+button {
+    padding: 0;
+}
+
+.player_button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 850px) {
+
+    .player_button {
+        padding: 15px;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+
+    .player_button {
+        padding: 10px;
+    }
+
+}

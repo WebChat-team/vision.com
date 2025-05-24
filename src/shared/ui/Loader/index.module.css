@@ -1,0 +1,9 @@
+.loader {
+    display: inline-block;
+    border: 2px solid var(--color-primary-light);
+    border-left-color: var(--color-secondary-gray);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: donut-spin .5s linear infinite;
+}   

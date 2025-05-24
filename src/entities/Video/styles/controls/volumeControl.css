@@ -1,0 +1,57 @@
+/* volume slider -------------------------------------------- */
+.video_volume_control {
+
+    width: 140px;
+
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    cursor: pointer;
+
+    align-self: stretch;
+
+}
+
+.volume_progress_line {
+
+    position: relative;
+
+    height: 100%;
+    min-width: 45px; 
+    max-width: 140px;
+
+    background-color: rgba(255, 255, 255, 0.3);
+
+    border-radius: 30px;
+
+}
+
+.volume_slider {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+
+    border-radius: 50%;
+
+    background-color: transparent;
+
+}
+
+.video_volume_control:hover .volume_slider {
+    background-color: transparent;
+}
+.video_volume_control:hover .volume_progress_line {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media screen and (max-width: 540px) {
+
+    .video_volume_control {
+        display: none;
+    }
+
+}

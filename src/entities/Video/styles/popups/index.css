@@ -1,0 +1,27 @@
+/* imports ================================================== */
+@import url("./settings/index.css");
+
+/* main ===================================================== */
+.container_popup {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+.darkness {
+    
+    position: absolute;
+
+    opacity: 0;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    
+    z-index: 6;
+
+}

@@ -1,0 +1,25 @@
+.resolution_button {
+
+    width: 100%;
+
+    padding: 15px 10px;
+    box-sizing: border-box;
+
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition: border-color .1s linear;
+    
+} 
+.resolution_button:hover {
+    border-color: rgb(137, 137, 137);
+}
+
+.resolution_button + .resolution_button {
+    margin-top: 10px;
+}
+

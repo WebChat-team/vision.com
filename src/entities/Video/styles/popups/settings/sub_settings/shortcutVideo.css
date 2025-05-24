@@ -1,0 +1,59 @@
+.shortcut {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 12px;
+
+    background-color: white;
+
+    cursor: pointer;
+
+    transition: background-color .1s linear;
+
+}
+.shortcut:hover {
+    background-color: rgb(242, 242, 242);
+}
+
+.shortcut + .shortcut {
+    border-top: 1px solid rgb(239, 239, 239);
+}
+
+.description_shortcut {
+
+    width: auto;
+    flex: 0 1 75%;
+
+    font-size: 14px;
+
+}
+.keys_shortcut {
+
+    height: min-content;
+
+    background-color: rgb(224, 224, 224);
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+}
+
+@keyframes change_key {
+    
+    0% {
+        background-color: rgb(242, 242, 242);
+    }
+    50% {
+        background-color: white;
+    }
+    100% {
+        background-color: rgb(242, 242, 242);
+    }
+
+}

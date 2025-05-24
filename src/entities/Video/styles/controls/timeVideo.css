@@ -1,0 +1,11 @@
+.time_video {
+
+    color: white;
+    font-size: .8em;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    user-select: none;
+
+}

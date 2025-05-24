@@ -1,0 +1,34 @@
+.rewind_video_item {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    box-sizing: border-box;
+    padding: 12px;
+
+    background-color: white;
+
+}
+
+.rewind_video_item + .rewind_video_item {
+    border-top: 1px solid rgb(188, 188, 188);
+}
+
+.value_rewind_item {
+
+    background-color: rgb(227, 227, 227);
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: none;
+
+}
+
+.description_rewind_item {
+    font-size: 14px;
+}

@@ -1,0 +1,90 @@
+/* imports ================================================== */
+@import url("./control.css");
+@import url("./volumeControl.css");
+@import url("./playbackSwitchVideo.css");
+@import url("./progressViewingControl.css");
+@import url("./selectedFrame.css");
+@import url("./snippet.css");
+@import url("./additionalInfo.css");
+@import url("./timeVideo.css");
+
+/* main ===================================================== */
+/* controls container --------------------------------------- */
+.controls_container {
+
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 5px;
+
+    padding: 15px 20px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;    
+
+    background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.4));
+
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        cursor: auto;
+    }
+}
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        cursor: none;
+    }
+}
+
+/* controls ------------------------------------------------- */
+.controls {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.3em;
+
+    margin-top: 5px;
+
+}
+
+.bottom_control_panel {
+
+    position: relative;
+    bottom: 0;
+
+}
+
+.lefl_controls,
+.right_controls {
+
+    height: max-content;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+}
+
+
+@media screen and (max-width: 850px) {
+    
+    .controls {
+        font-size: 1.15em;
+    }
+
+}

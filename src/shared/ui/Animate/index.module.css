@@ -1,0 +1,7 @@
+.animation_container {
+    display: none;
+}
+
+.animation_container:has(div) {
+    display: block;
+}

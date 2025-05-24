@@ -1,0 +1,185 @@
+/* imports ================================================== */
+@import url("./sub_settings/speedVideoSection.css");
+@import url("./sub_settings/resolutionVideoSection.css");
+@import url("./sub_settings/shortcutVideo.css");
+@import url("./sub_settings/rewindVideo.css");
+
+/* main ===================================================== */
+.settings_popup {
+    
+    overflow: hidden;
+
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 25px;
+
+    background-color: white;
+
+    z-index: 7;
+
+}
+
+/* header */
+.header_settings_video {
+
+    min-height: 55px;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+
+    box-sizing: border-box;
+    padding: 20px 20px 0px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+/* body */
+.body_settings_popup {
+    
+    height: 72%;
+    width: 200%;
+    display: flex;
+
+    position: relative;
+
+}
+
+.nav_settings {
+    width: 100%;
+}
+
+.setting_video {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition: border-color .1s linear;
+
+}
+
+/* setting video */
+.setting_video:hover {
+    border-color: rgb(137, 137, 137);
+}
+
+.icon_setting {
+
+    border-radius: 50%;
+    background-color: white;
+
+    padding: 15px;
+
+    font-size: 18px;
+
+}
+
+.title_setting {
+
+    margin: 0 0 3px 0;
+
+    text-align: left;
+    font-size: 16px;
+
+}
+.description_setting {
+
+    margin: 0;
+
+    text-align: left;
+    color: grey;
+
+}
+
+.setting_video + .setting_video {
+    margin-top: 7px;
+}
+
+/*  */
+.item_body_settings_popup {
+    
+    width: 100%;
+
+    padding: 0 15px;
+
+    overflow-x: auto;
+    
+}
+
+.section_setting {
+    display: none;
+    margin-top: 5px;
+}
+
+.main_setting {
+
+}
+
+.header_settings_button {
+
+    display: none;
+
+    border-radius: 15px;
+
+    padding: 10px 15px;
+
+    border: 1px solid transparent;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: border-color .1s linear;
+
+}
+.header_settings_button:hover {
+    border-color: rgb(137, 137, 137);
+}
+
+.footer_settings_popup {
+
+    text-align: right;
+    padding: 5px;
+
+}
+
+.close_settings_popup {
+
+    box-sizing: border-box;
+    padding: 15px;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 16px;
+    
+    cursor: pointer;
+
+}
+.close_settings_popup:hover {
+    background-color: grey;
+}
