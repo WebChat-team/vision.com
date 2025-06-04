@@ -1,0 +1,35 @@
+.container_form {
+
+    margin: 0 auto;
+    max-width: 850px;
+
+}
+
+.form > label {
+    margin-bottom: 25px;
+}
+
+.form > label:last-of-type {
+    margin-bottom: 0px;
+}
+
+.title {
+
+    margin-bottom: 40px;
+    margin-top: 0;
+
+}
+
+.form > button[type="submit"] {
+    margin-top: 20px;
+}
+.form:invalid > button[type="submit"]:hover {
+    background-color: initial;
+    color: inherit;
+}
+
+@media screen and (max-width: 1024px) {
+    .form {
+        max-width: 100%;
+    }
+}

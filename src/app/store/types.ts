@@ -1,5 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
-import makeStore from ".";
+import { makeStore } from ".";
 
 type AppStore = ReturnType<typeof makeStore>
 type RootState = ReturnType<AppStore["getState"]>

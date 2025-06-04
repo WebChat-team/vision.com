@@ -1,0 +1,58 @@
+.wrong_message {
+
+    background-color: var(--vision--background_color);
+
+    border: 1px solid var(--vision--color_invalid);
+
+    width: 500px;
+
+    position: absolute;
+    right: 40px;
+    top: 40px;
+
+    border-radius: 20px;
+
+    z-index: 10;
+
+    overflow: hidden;
+
+}
+
+.header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    box-sizing: border-box;
+    padding: 20px 30px 10px;
+
+}
+
+.main {
+
+    box-sizing: border-box;
+    padding: 10px 30px 30px;
+
+}
+
+.text {
+    font-size: 1.25em;
+}
+.title {
+    font-size: 1.5em;
+}
+
+.close_button {
+
+    width: 50px;
+    height: 50px;
+
+    background-color: transparent;
+    border-radius: 50%;
+
+    padding: 0;
+
+}

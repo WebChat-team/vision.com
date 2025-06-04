@@ -1,12 +1,11 @@
 // imports ================================================== //
-
-import ListVideos from "@/widgets/ListVideos";
+import Dashboard from "@/entities/Dashboard";
 
 // main ===================================================== //
 function Page() {
 
     return (
-        <ListVideos />
+        <Dashboard />
     );
 
 }

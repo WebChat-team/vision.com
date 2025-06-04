@@ -1,0 +1,51 @@
+.panel_view {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: row;
+
+    flex: 0 1 90%;
+
+    overflow-x: visible;
+
+    width: 200%;
+
+    position: relative;
+
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+
+}
+
+.group_view {
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 50px;
+
+    width: 100%;
+
+}
+
+.separator {
+
+    height: 100%;
+    width: 2px;
+
+    background-color: transparent;
+    
+    padding: 0 10px;
+
+    cursor: pointer;
+
+}
+.separator:hover {
+
+    background-color: blue;
+
+}

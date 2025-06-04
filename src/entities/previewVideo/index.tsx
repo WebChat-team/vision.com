@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./index.module.css";
 import type { PreviewVideoData } from "./types";
 import { useEffect, useRef, useState } from "react";
-import { UserData } from "../menu/types";
 import { getChannelData } from "./api";
 import { formatDuration } from "./helpers/formatDuration";
 import { useRouter } from "next/navigation";
@@ -12,7 +10,7 @@ import { formatUploadDate } from "@/shared/lib/formatUploadDate";
 
 export default function PreviewVideo({ id, user_id, name, timestamp }: PreviewVideoData) {
 
-    const [userData, setUserData] = useState<UserData>();
+    const [userData, setUserData] = useState<any>();
     const [duration, setDuration] = useState();
     const router = useRouter();
 

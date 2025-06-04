@@ -1,0 +1,18 @@
+.dashboard {
+
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    overflow: hidden;
+
+}
+
+.manager_panel_view {
+
+    z-index: 4;
+
+}

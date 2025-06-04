@@ -1,40 +1,35 @@
-// imports =================================================== //
-// react ----------------------------------------------------- //
-import React, { useState, useEffect, useRef } from "react";
-// internal -------------------------------------------------- //
-import type { Animate as AnimateType } from "./types";
-import styles from "./index.module.css";
+"use client";
 
-// main ====================================================== //
-const Animate: AnimateType = ({ has, onShow, onHide, children }) => {
+import { useEffect, useCallback, cloneElement, useRef, useState } from "react";
+import type { Animate } from "./types";
 
-    let [hasChildren, setHasChildren] = useState(has);
-    let AnimationContainerRef = useRef<HTMLDivElement>(null);
+const Animate: Animate =({ has, onShow, onHide, children }) => {
 
-    function hide() {
-        setTimeout(async () => {
-            let child = AnimationContainerRef.current!.firstChild;
-            if (onHide && child) await onHide(child as HTMLElement);
-            setHasChildren(false);
-        }, 1);
-    }
-    function show() {
-        setHasChildren(true);
-        setTimeout(async () => {
-            let child = AnimationContainerRef.current!.firstChild;
-            if (onShow && child) await onShow(child as HTMLElement);
-        }, 1);
-    }
+        const childRef = useRef<HTMLElement | null>(null);
+        const [isMount, setIsMount] = useState(false);
 
-    useEffect(has ? show : hide, [has]);
+        useEffect(() => {
+            
+            if (!childRef.current) return;
 
-    return (
-        <div className={styles.animation_container} ref={AnimationContainerRef}>
-            {hasChildren && children}
-        </div>
-    );
+            if (has) {
+                onShow?.(childRef.current);
+            } else {
+                onHide?.(childRef.current);
+            }
+
+        }, [has]);
+
+        useEffect(() => { setIsMount(true); }, []);
+
+        if (!isMount) return null;
+
+        return cloneElement(children, {
+            ref: (node: HTMLElement) => {
+                childRef.current = node;
+            }
+        });
 
 };
 
-// export ==================================================== //
 export default Animate;

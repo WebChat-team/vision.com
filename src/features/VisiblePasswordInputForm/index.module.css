@@ -1,0 +1,28 @@
+.button {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--vision--background-color--lite-grey);
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    transition: background-color .15s linear;
+
+}
+
+.button:hover {
+
+    background-color: var(--vision--background-color--grey);
+
+}
+
+.icon {
+    width: 30px;
+}

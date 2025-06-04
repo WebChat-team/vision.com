@@ -1,0 +1,37 @@
+.app {
+
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    border: none;
+
+    background-color: var(--vision--background-color--dark-grey);
+    backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    color: var(--vision--color--main);
+
+}
+.active {
+    background-color: var(--vision--background-color--blur-app);
+    transition: background-color .15s linear;
+}
+.app.active:hover {
+    background-color: var(--vision--background-color--hover);
+}
+
+.icon_app {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+.name_app {
+    display: block;
+}

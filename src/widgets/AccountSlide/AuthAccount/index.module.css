@@ -1,0 +1,26 @@
+.switch_auth {
+
+    padding: 20px;
+
+    border-radius: 30px;
+
+    background-color: var(--vision--background-color--lite-grey);
+
+    margin-bottom: 60px;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+.switch_auth:hover {
+
+    background-color: var(--vision--background-color--grey);
+
+}
+
+.auth_form_container {
+
+    margin-bottom: 30px;
+
+}

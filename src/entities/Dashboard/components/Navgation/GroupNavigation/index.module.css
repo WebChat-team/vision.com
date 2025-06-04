@@ -1,0 +1,51 @@
+.group_navigation {
+
+    position: relative;
+    left: 0;
+
+    z-index: 4;
+
+    width: 85px;
+    height: 85px;
+
+}
+
+.group {
+
+    background-color: var(--vision--background-color--lite-grey);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+}
+
+.app {
+    flex: 1 1 auto;
+}
+
+.inner_container_groups {
+
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+}

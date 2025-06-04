@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { AnimationJS } from "moveton";
 import type { ReactNode } from "react";

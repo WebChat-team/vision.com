@@ -1,0 +1,50 @@
+.navigation {
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    height: 10%;
+
+}
+
+.show_list_apps {
+
+    position: absolute;
+    display: flex;
+
+    background-color: var(--vision--background-color--default);
+
+    border-radius: 50%;
+
+    border: 5px solid transparent;
+    border-radius: 50%;
+
+    transition: border-color .15s linear;
+
+    cursor: pointer;
+
+    padding: 10px;
+
+    z-index: 5;
+
+    margin: 0 auto;
+
+}
+.show_list_apps.active:hover {
+    border-bottom-color: var(--vision--background-color--border-for-default);
+}
+.show_list_apps:not(.active):hover {
+    border-top-color: var(--vision--background-color--border-for-default);
+}
+
+.logo {
+
+    height: 50px;
+    width: 50px;
+
+}

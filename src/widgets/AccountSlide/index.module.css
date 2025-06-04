@@ -1,0 +1,9 @@
+.account_slice {
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    background-color: var(--vision--background-color--default);
+
+}
