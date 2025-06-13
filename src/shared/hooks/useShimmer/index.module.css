@@ -1,0 +1,70 @@
+/* main */
+.shimmer_container {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer_container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(-45deg,
+            var(--vision--background-color--lite-grey) 0%,
+            var(--vision--background-color--default) 25%,
+            var(--vision--background-color--lite-grey) 50%,
+            var(--vision--background-color--default) 75%,
+            var(--vision--background-color--lite-grey) 100%);
+    background-size: 200% 200%;
+    z-index: 1;
+}
+
+/* loading */
+.loading::before {
+    animation: shimmer-vertical 1s infinite linear;
+}
+
+/* success */
+.success {
+    overflow: auto;
+}
+
+.success::before {
+    animation:
+        shimmer-vertical 1s infinite linear,
+        disappear 1s forwards,
+        hide .1s 1s forwards;
+}
+
+/* animations */
+@keyframes shimmer-vertical {
+    from {
+        background-position: 100% 100%;
+    }
+
+    to {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes hide {
+    from {
+        z-index: -1;
+    }
+
+    to {
+        z-index: -1;
+    }
+}

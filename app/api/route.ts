@@ -7,7 +7,7 @@ import fetchNext from "@/shared/lib/fetch";
 export async function GET() {
 
     const response = await fetchNext(
-        "http://api.vision.com:3000/user/info?detail=account",
+        "http://api.vision.com:3000/user/user?detail=account",
         {
             method: "GET",
             credentials: "include",

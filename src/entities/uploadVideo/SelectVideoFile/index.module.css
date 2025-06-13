@@ -1,0 +1,23 @@
+.container {
+
+    margin: 275px 0;
+
+    display: block;
+    text-align: center;
+
+}
+
+.button_select_files {
+
+    display: inline-block;
+
+    background-color: var(--vision-background-color--medium-grey);
+
+    box-sizing: border-box;
+    padding: 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}

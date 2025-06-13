@@ -1,6 +1,12 @@
-import type { VideoSlice } from "@/app/store/slices/video/types";
-import type { FC } from "react";
+import { VideoModes, VideoSlice } from "@/app/store/slices/video/types";
+import type { Dispatch, FC, SetStateAction } from "react";
 
-type Video = FC<Readonly<VideoSlice>>
+interface Props {
+    className: string,
+    videoData: VideoSlice | null,
+    mode: VideoModes,
+    setVideoFile: Dispatch<SetStateAction<File | null>>
+}
+type Video = FC<Readonly<Props>>
 
 export type { Video };

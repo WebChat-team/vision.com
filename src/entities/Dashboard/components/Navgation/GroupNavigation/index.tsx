@@ -23,7 +23,7 @@ const GroupNavigation: GroupNavigation = ({ hideListApps }) => {
         switch (ButtonNumberRef.current) {
 
             case 1:
-                dispatch(setActive(indexGroup));
+                dispatch(setActive({ type: "index", index: indexGroup }));
                 break;
 
             case 2:

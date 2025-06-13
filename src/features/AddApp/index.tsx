@@ -23,7 +23,7 @@ const App: AppType = ({ type, hideListApps }) => {
 
             case 1:
                 if (type in includes) {
-                    dispatch(setActive(includes[type]));
+                    dispatch(setActive({ type: "name", name: type }));
                     hideListApps();
                 } else {
                     dispatch(addPanel({ panelName: type }));

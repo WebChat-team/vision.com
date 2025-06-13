@@ -2,6 +2,7 @@ body:has(.light) {
 
     --vision--background-color--body: rgb(238, 238, 240);
     --vision--background-color--blur: rgba(240, 240, 240, 0.5);
+    --vision--background-color--lite-grey-blur: rgba(230, 230, 230, 0.5);
     --vision--background-color--blur-app:rgba(255, 255, 255, 0.8);
     --vision--background-color--hover: rgb(247, 247, 247);
     --vision--background-color--default: white;
@@ -29,6 +30,25 @@ body:has(.light) {
     --vision--background_color_muted: #f4f4f4;
     --vision--background_color_hover: #e9f5ed;
     --vision--background_color_active: #29DF63;
+
+    --vision--background-color--lite-grey-rgb: 230, 230, 230;
+    --vision--background-color--dark-grey-rgb: 175, 175, 175;
+    --vision--background-color--default-rgb: 255, 255, 255;
+
+    --vision--background-color--liked: rgb(255, 160, 160);
+    --vision--background-color--disliked: #95A5A6;
+    --vision--background-color--subscribed: #ffcc00;
+    --vision--background-color--has-comments: #00ccff;
+
+    --webchatui--background_color: white;
+    --webchatui--background_color_muted: #DCECE2;
+    --webchatui--background_color_active: #29DF63;
+
+    --webchatui--color: black;
+    --webchatui--color_inactive: #A3A3A3;
+    --webchatui--color_active: #29DF63;
+    --webchatui--color_muted: #DCECE2;
+    --webchatui--color_invalid: #df2929;
 
 }
 body:has(.dark) {
@@ -62,5 +82,24 @@ body:has(.dark) {
     --vision--background_color_muted: #343434;
     --vision--background_color_hover: #e9f5ed;
     --vision--background_color_active: #29DF63;
+
+    --vision--background-color--lite-grey-rgb: 60, 60, 65;
+    --vision--background-color--dark-grey-rgb: 23, 23, 26;
+    --vision--background-color--default-rgb: 32, 32, 36;
+
+
+    --vision--background-color--liked: rgb(255, 160, 160);
+    --vision--background-color--disliked: #95A5A6;
+    --vision--background-color--subscribed: #ffcc00;
+    --vision--background-color--has-comments: #00ccff;
+
+    --webchatui--background_color: #222223;
+    --webchatui--background_color_muted: #DCECE2;
+
+    --webchatui--color: white;
+    --webchatui--color_inactive: #A3A3A3;
+    --webchatui--color_active: #29DF63;
+    --webchatui--color_muted: #DCECE2;
+    --webchatui--color_invalid: #df2929;
 
 }

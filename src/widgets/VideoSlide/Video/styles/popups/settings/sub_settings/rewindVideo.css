@@ -8,8 +8,6 @@
     box-sizing: border-box;
     padding: 12px;
 
-    background-color: white;
-
 }
 
 .rewind_video_item + .rewind_video_item {
@@ -30,5 +28,4 @@
 }
 
 .description_rewind_item {
-    font-size: 14px;
 }

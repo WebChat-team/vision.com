@@ -1,0 +1,138 @@
+.container_account {
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    
+    max-height: 1000px;
+
+}
+
+.conatiner_section {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.account_navigation {
+
+    display: flex;
+    gap: 10px;
+
+    background-color: white;
+    padding: 10px 20px;
+
+    border-radius: 15px;
+
+}
+
+.user_account {
+    
+    text-align: center;
+
+    width: 100%;
+    min-width: 320px;
+    max-width: 500px;
+
+    background-color: var(--vision--background-color--default);
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+}
+
+/* nav */
+.nav {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+.link {
+
+    background-color: white;
+
+    border-radius: 50px;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    text-decoration: none;
+    color: black;
+
+}
+
+.icon_link {
+
+    background-color: rgb(224, 224, 224);
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+    padding: 15px;
+
+}
+
+.title_link {
+
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+
+.description_link {
+
+    display: block;
+
+    color: grey;
+
+}
+
+.about_link {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    text-align: left;
+
+}
+
+.arrow_icon,
+.forward_icon {
+
+    color: grey;
+
+    margin-right: 15px;
+
+    transition: margin-right .15s linear, margin-bottom .15s linear;
+
+}
+
+.arrow_icon {
+}
+.forward_icon {
+}
+
+.link:hover > .arrow_icon {
+    margin-right: 8px;
+}
+.link:hover > .forward_icon {
+    margin-bottom: 8px;
+}

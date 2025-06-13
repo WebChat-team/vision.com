@@ -1,6 +1,7 @@
 // imports ================================================== //
 import range from "../lib/math.js";
 import shortcutManager from "../../shortcutManager/index.js";
+import { AnimationJS } from "moveton";
 
 // helpers ================================================== //
 function appear(element) {

@@ -1,0 +1,35 @@
+.video_comments {
+
+    background-color: var(--vision--background-color--default);
+ 
+    border-radius: 15px;
+
+    max-width: 400px;
+    width: 100%;
+    
+    padding: 25px 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    flex: 0 0 auto;
+
+}
+
+.list_comments {
+
+    height: 100%;
+
+    padding-bottom: 45px;
+
+}
+
+.name_section {
+
+    font-size: 1.5em;
+
+    margin: 0px;
+    padding-bottom: 20px;
+
+}

@@ -1,11 +1,22 @@
 .time_video {
 
     color: white;
-    font-size: .8em;
 
     box-sizing: border-box;
     padding: 10px;
 
     user-select: none;
 
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+}
+
+.current_time {
+    font-size: 2.35em;
+}
+
+.duration_video {
+    margin-right: 5px;
 }

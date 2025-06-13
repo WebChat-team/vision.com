@@ -1,0 +1,69 @@
+.subscribers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Всегда 3 колонки */
+    gap: 8px;
+    width: 100%;
+}
+
+.subscriber {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    background-color: var(--vision--background-color--default);
+    border-radius: 15px;
+    padding: 50px 30px;
+    gap: 20px;
+
+    min-width: 320px;
+
+    border: none;
+
+    color: var(--vision--color--main);
+
+    cursor: pointer;
+}
+.subscriber:hover {
+    background-color: var(--vision--background-color--lite-grey);
+}
+
+.subs_count {
+
+    color: var(--vision--color--grey);
+
+}
+
+.subscriber_avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.subscriber_name {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .subscriber_avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .subscriber_name {
+        font-size: 0.7rem;
+    }
+}
+
+/* Для случаев, когда элементов меньше 3 */
+.subscribers_container:has(:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.subscribers_container:has(:nth-child(1):last-child) {
+    grid-template-columns: 1fr;
+}

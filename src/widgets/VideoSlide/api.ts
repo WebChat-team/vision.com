@@ -4,7 +4,7 @@ export async function getVideoInfo(id: string): Promise<VideoSlice | null> {
 
     try {
 
-        const data = await fetch(`http://s3.vision.com:3002/info?id=${id}`);
+        const data = await fetch(`/video/api?id=${id}`);
 
         return await data.json() as VideoSlice;
 

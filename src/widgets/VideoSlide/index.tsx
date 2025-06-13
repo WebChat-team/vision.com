@@ -1,40 +1,39 @@
 "use client";
 
 import type { VideoSLide as VideoSLideType } from "./types";
-import Video from "./Video";
 import styles from "./index.module.css";
-import VideoInfo from "./VideoInfo";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import VideoActions from "./VideoActions";
+import VideoComments from "./VideoComments";
+import Video from "./Video";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { setVideo } from "@/app/store/slices/video";
-import { getVideoInfo } from "./api";
-import { useAppSelector } from "@/app/store/hooks";
+import { useStyleShimmer } from "@/shared/hooks/useShimmer/useShimmer";
+import PublishVideoForm from "./Video/PublishVideoForm";
 
-const VideoSlide: VideoSLideType = ({ id }) => {
+const VideoSlide: VideoSLideType = ({ }) => {
 
-    const dispatch = useDispatch();
     const videoData = useAppSelector(state => state.video.data);
+    const videoMode = useAppSelector(state => state.video.mode);
+    const stylesShimmer = useStyleShimmer(videoData ? "success" : "loading");
+    const userData = useAppSelector(state => state.user.data);
+
+    const [hasComments, setHasComments] = useState(false);
+    const [videoFile, setVideoFile] = useState<File | null>(null);
 
     useEffect(() => {
-
-        (async function a() {
-
-            const videoInfoData = await getVideoInfo(id);
-
-            if (videoInfoData) {
-                dispatch(
-                    setVideo(videoInfoData)
-                );
-            }
-
-        })();
-
-    }, [id]);
+        setHasComments(false);
+        if (videoMode === "platform_view") {
+            setVideoFile(null);
+        }
+    }, [videoMode]);
 
     return (
         <div className={styles.video_slide}>
-            {videoData && <Video {...videoData} />}
-            {videoData && <VideoInfo {...videoData} />}
+            <Video setVideoFile={setVideoFile} mode={videoMode} className={stylesShimmer} videoData={videoData} />
+            <VideoActions hasComments={hasComments} setHasComments={setHasComments} />
+            {hasComments && <VideoComments />}
+            {userData && videoMode === "studio_view" && <PublishVideoForm videoFile={videoFile} />}
         </div>
     );
 

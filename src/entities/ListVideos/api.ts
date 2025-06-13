@@ -1,5 +1,4 @@
-import fetchNext from "@/shared/lib/fetch";
-
-export default async function getListVideos() {
-    return (await fetchNext("http://s3.vision.com:3002/videos")).json();
+export default async function getListVideos(search_query: string, limit: number, offset: number) {
+    const response = await fetch(`/videos/api?search_query=${search_query}&limit=${limit}&offset=${offset}`);
+    return await response.json();
 }

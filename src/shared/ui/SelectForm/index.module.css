@@ -1,0 +1,50 @@
+.description_select {
+
+    position: absolute;
+    left: 15px;
+    top: -10px;
+
+    font-size: 1.25em;
+    
+    box-sizing: border-box;
+    padding: 0 10px;
+
+    background-color: var(--webchatui--background_color);
+
+}
+
+.label {
+    
+    width: 100%;
+    height: 75px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    background-color: var(--webchatui--background_color);
+
+    box-sizing: border-box;
+    padding: 2px 10px 2px 21px;
+
+    position: relative;
+
+    border: 1px solid var(--webchatui--color_inactive);
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: border-color .15s linear;
+
+}
+
+.label:has(input:not([value=""]):invalid) {
+    border-color: var(--webchatui--color_invalid);
+}
+.label:has(input:valid) {
+    border-color: var(--webchatui--color_active);
+}
+.label:has(input:focus[value=""]) {
+    border-color: var(--webchatui--color);
+}

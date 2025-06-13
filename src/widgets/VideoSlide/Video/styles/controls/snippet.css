@@ -8,8 +8,6 @@
     position: relative;
     left: 0;
 
-    font-size: 14px;
-
     user-select: none;
 
 }
@@ -31,6 +29,9 @@
 
     border-radius: 20px;
 
-    background-color: rgb(135, 135, 135);
+    font-size: 1em;
+
+    background-color: var(--vision--background-color--lite-grey-blur);
+    backdrop-filter: blur(10px);
 
 }

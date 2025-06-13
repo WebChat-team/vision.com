@@ -1,57 +1,36 @@
+:root {
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 2rem;
+}
+
+html {
+    font-size: 100%;
+}
 
 body {
-
-    font-size: 16px;
-
+    font-size: var(--text-base);
 }
 
-@media screen and (min-width: 1600px) {
-    
-    body {
-
-        font-size: 22px;
-
-    }
-    
+h1 {
+    font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);
 }
 
-@media screen and (max-width: 1600px) {
-    
-    body {
-
-        font-size: 20px;
-
-    }
-    
+h2 {
+    font-size: calc(var(--text-base) + 1vw);
 }
 
-@media screen and (max-width: 1366px) {
-    
-    body {
-
-        font-size: 18px;
-
-    }
-    
+h3 {
+    font-size: calc(var(--text-base) + .25vw);
 }
 
-@media screen and (max-width: 1024px) {
-    
-    body {
-
-        font-size: 16px;
-
-    }
-    
+p, a, span, textarea, input {
+    font-size: 1.15em;
 }
 
-
-@media screen and (max-width: 540px) {
-    
-    body {
-
-        font-size: 14px;
-
+@media (max-width: 767px) {
+    :root {
+        --text-base: 0.9rem;
+        --text-xl: 1.5rem;
     }
-    
 }

@@ -2,53 +2,92 @@
 
 import styles from "./index.module.css";
 import type { PreviewVideoData } from "./types";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getChannelData } from "./api";
 import { formatDuration } from "./helpers/formatDuration";
-import { useRouter } from "next/navigation";
-import { formatUploadDate } from "@/shared/lib/formatUploadDate";
+import { formatUploadDate, pluralize } from "@/shared/lib/formatUploadDate";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { setVideo } from "@/app/store/slices/video";
+import { getVideoInfo } from "@/widgets/VideoSlide/api";
+import { addPanel, setActive } from "@/app/store/slices/panelManager";
 
-export default function PreviewVideo({ id, user_id, name, timestamp }: PreviewVideoData) {
+// @ts-ignore
+export default function PreviewVideo({ id, user_id, name, author_name, author_avatar, timestamp, unique_views }: PreviewVideoData) {
 
     const [userData, setUserData] = useState<any>();
-    const [duration, setDuration] = useState();
-    const router = useRouter();
+    const [duration, setDuration] = useState<string | null>(null);
+    const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = useState(false);
+    const videoData = useAppSelector(state => state.video.data);
+    const includesPanels = useAppSelector(state => state.panel_manager.includes);
 
     useEffect(() => {
         getChannelData(user_id).then((data) => setUserData(data));
     }, []);
 
+    async function handleClick() {
+
+        if (isLoading) return;
+
+        setIsLoading(true);
+
+        const data = await getVideoInfo(id);
+
+        if (data) {
+
+            dispatch( setVideo({ data: Object.assign(data, { path: `http://s3.vision.com:3002/video?v=${data.id}` }), mode: "platform_view" }) );
+
+            if ("watch" in includesPanels) {
+                dispatch(setActive({ type: "name", name: "watch" }));
+            } else {
+                dispatch(addPanel({ panelName: "watch" }))
+            }
+            
+        }
+
+        setIsLoading(false);
+
+    }
+
     return (
-        <a href={`/watch?v=${id}`} className={styles.preview_video}>
+        <button onClick={handleClick} className={styles.preview_video}>
             <div className={styles.video_preview_container}>
+                {
+                    videoData && videoData.id === id &&
+                    <div className={styles.is_viewing_video}>
+                        <span className={styles.circle_viewing_video}></span>
+                    </div>
+                }
                 {/* @ts-ignore */}
-                <video onLoadedMetadata={(event) => setDuration(formatDuration(event.target.duration))} className={styles.preview_photo} src={`http://s3.vision.com:3002/video?v=${id}`}></video>
+                <video onLoadedMetadata={(event) => { setDuration(formatDuration(event.target.duration)) }} className={styles.preview_photo} src={`http://s3.vision.com:3002/video?v=${id}`}></video>
                 <span className={styles.time_video}>
                     {duration}
                 </span>
             </div>
             <div className={styles.info_preview_video}>
+                <img src={author_avatar} className={styles.channel_photo} />
                 <div className={styles.info}>
-                    <span className={styles.title}>
+                    <h3 className={styles.title}>
                         {name}
+                    </h3>
+                    <span className={styles.channel_name}>
+                        {author_name}
                     </span>
-                    <span className={styles.additional_info}>
-                        <span>
-                            {formatUploadDate(timestamp)}
-                        </span>
-                    </span>
+                    {
+                        (typeof unique_views === "number" && timestamp) &&
+                        <div className={styles.stat_container}>
+                            <span>
+                                {`${unique_views} ${pluralize(unique_views, "просмотр", "просмотра", "просмотров")}`}
+                            </span>
+                            <span className={styles.separator}></span>
+                            <span>
+                                {formatUploadDate(timestamp)}
+                            </span>
+                        </div>
+                    }
                 </div>
-                {
-                    userData &&
-                    <div onClick={() => router.push(`http://vision.com:3005/channel?id=${user_id}`)} className={styles.channel}>
-                        <img src={userData.avatar_url} className={styles.channel_photo} />
-                        <span className={styles.channel_name}>
-                            {userData.name}
-                        </span>
-                    </div>
-                }
             </div>
-        </a>
+        </button>
     );
 
 }

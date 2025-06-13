@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "jsonwebtoken": "^9.0.2",
     "moveton": "^1.0.9",
@@ -17,7 +18,8 @@
     "next-redux-wrapper": "^8.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.3",

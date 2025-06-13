@@ -1,0 +1,27 @@
+.is_like {
+    animation: fillLike .6s ease-out forwards;
+}
+
+@keyframes fillLike {
+    0% {
+        background-color: initial;
+    }
+    100% {
+        background-color: var(--vision--background-color--liked);
+        color: var(--vision--color--main);
+    }
+}
+
+.is_dislike {
+    animation: fillDisLike .6s ease-out forwards;
+}
+
+@keyframes fillDisLike {
+    0% {
+        background-color: initial;
+    }
+    100% {
+        background-color: var(--vision--background-color--disliked);
+        color: var(--vision--color--main);
+    }
+}

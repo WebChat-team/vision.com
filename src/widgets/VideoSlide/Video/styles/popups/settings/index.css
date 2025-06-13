@@ -16,13 +16,12 @@
     right: 10px;
     bottom: 10px;
 
-    width: 450px;
-
-    height: 450px;
+    width: 500px;
+    height: 500px;
 
     border-radius: 25px;
 
-    background-color: white;
+    background-color: var(--vision--background-color--default);
 
     z-index: 7;
 
@@ -32,8 +31,6 @@
 .header_settings_video {
 
     min-height: 55px;
-
-    font-size: 22px;
 
     margin-bottom: 15px;
 
@@ -73,7 +70,7 @@
     box-sizing: border-box;
 
     border-radius: 20px;
-    background-color: rgb(238, 238, 238);
+    background-color: var(--vision--background-color--lite-grey);
 
     border: 1px solid transparent;
 
@@ -91,20 +88,18 @@
 .icon_setting {
 
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--vision--background-color--grey);
 
     padding: 15px;
-
-    font-size: 18px;
 
 }
 
 .title_setting {
 
     margin: 0 0 3px 0;
+    color: var(--vision--color--main);
 
     text-align: left;
-    font-size: 16px;
 
 }
 .description_setting {
@@ -112,7 +107,7 @@
     margin: 0;
 
     text-align: left;
-    color: grey;
+    color: var(--vision--color--grey);
 
 }
 
@@ -175,8 +170,6 @@
     border: none;
     border-radius: 50%;
 
-    font-size: 16px;
-    
     cursor: pointer;
 
 }

@@ -1,0 +1,79 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 10px;
+}
+
+.title {
+    font-size: 1.25em;
+    margin-bottom: 5px;
+    display: block;
+}
+.description {
+    display: block;
+    color: var(--vision-color--dark-grey);
+    font-size: 1.25em;
+}
+
+
+.switch_input {
+    display: none;
+}
+
+.switch {
+
+    display: flex;
+    align-items: center;
+
+    width: 65px;
+    height: 35px;
+    
+    border: 1px solid var(--vision--color--main);
+    border-radius: 30px;
+    background-color: var(--vision-background-color--light-grey);
+
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+
+    transition: background-color .1s linear, border-color .1s linear;
+
+}
+.switch:hover {
+    border-color: gainsboro;
+}
+.switch:hover:before {
+    border-color: gainsboro;
+}
+
+.switch:before {
+
+    display: inline-block;
+    content: "";
+
+    box-sizing: border-box;
+    padding: 2px;
+
+    height: 33px;
+    width: 33px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    background-color: var(--vision-background-color--white);
+
+    position: absolute;
+    left: 2px;
+
+    transition: left .125s linear, border-color .1s linear;
+
+}
+
+.switch:has(.switch_input:checked) {
+    background-color: var(--vision-background-color--light-green);
+}
+.switch:has(.switch_input:checked):before {
+    left: 47%;
+}

@@ -29,6 +29,8 @@
 
     cursor: pointer;
 
+    max-height: 800px;
+
 }
 
 .app {

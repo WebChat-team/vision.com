@@ -13,10 +13,9 @@ const AccountSlide = () => {
         <div className={styles.account_slice}>
             {
                 userData
-                ? <Account />
+                ? <Account {...userData} />
                 : <AuthAccount />
             }
-            
         </div>
     );
 

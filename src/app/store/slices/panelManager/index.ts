@@ -6,9 +6,9 @@ import removeGroupByIndex from './helpers';
 
 // main
 const initialState: PanelManagerSlice = {
-  groups: [["watch", "account"]],
+  groups: [[ "watch" ]],
   activeIndex: 0,
-  includes: { watch: 0, account: 0 },
+  includes: { watch: 0 },
 };
 
 const panelMangerSlice = createSlice({
@@ -20,11 +20,16 @@ const panelMangerSlice = createSlice({
       let { indexPosition, panelName } = data.payload;
 
       if (typeof indexPosition !== 'number') {
-        if (store.groups.length && store.groups[store.activeIndex].length == 2) {
-          indexPosition = store.groups.length;
-        } else {
-          indexPosition = store.activeIndex;
-        }
+          if (panelName in store.includes) {
+            store.activeIndex = store.includes[panelName];
+            return;
+          } else {
+            indexPosition = store.groups.length;
+          }
+        // if (store.groups.length && store.groups[store.activeIndex].length == 2) {
+        // } else {
+          // indexPosition = store.activeIndex;
+        // }
       }
 
       if (
@@ -52,10 +57,22 @@ const panelMangerSlice = createSlice({
       }
 
     },
-    setActive(store, data: PayloadAction<number>) {
+    setActive(store, data: PayloadAction<{ type: "index", index: number } | { type: "name", name: string }>) {
 
-      if (0 <= data.payload && data.payload < store.groups.length) {
-        store.activeIndex = data.payload;
+      switch (data.payload.type) {
+
+        case "index":
+          if (0 <= data.payload.index && data.payload.index < store.groups.length) {
+            store.activeIndex = data.payload.index;
+          }
+          break;
+
+        case "name":
+          if (typeof store.includes[data.payload.name] === "number") {
+            store.activeIndex = store.includes[data.payload.name];
+          }
+          break;
+
       }
 
     },

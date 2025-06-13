@@ -1,0 +1,146 @@
+.comment {
+
+    display: flex;
+
+    padding-bottom: 20px;
+
+    animation: show .5s ease-in forwards;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.avatarContainer {
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f1f1f1;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.authorName {
+    font-weight: 500;
+    color: #0f0f0f;
+    margin-right: 8px;
+}
+
+.timestamp {
+    font-size: .9em;
+    color: #606060;
+}
+
+.text {
+    line-height: 20px;
+    color: #0f0f0f;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    padding: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    background-color: var(--vision--background-color--grey);
+    border-radius: 50%;
+}
+
+.actionButton:hover {
+    background-color: var(--vision--background-color--lite-grey);
+}
+
+.actionButton.liked {
+    color: #065fd4;
+}
+
+.likeIcon {
+    display: flex;
+    align-items: center;
+}
+
+.likeCount {
+    min-width: 12px;
+    text-align: center;
+}
+
+.repliesToggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    color: #065fd4;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 18px;
+    margin-left: 8px;
+}
+
+.repliesToggle:hover {
+    background-color: rgba(6, 95, 212, 0.1);
+}
+
+/* Для темной темы */
+@media (prefers-color-scheme: dark) {
+    .authorName,
+    .text {
+        color: #f1f1f1;
+    }
+    
+    .timestamp,
+    .actionButton {
+        color: #aaa;
+    }
+    
+    .actionButton:hover {
+        color: #f1f1f1;
+    }
+    
+    .comment {
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .avatar {
+        background-color: #333;
+    }
+}

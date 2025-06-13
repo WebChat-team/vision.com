@@ -12,16 +12,14 @@ const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     setUser(store, userData) {
+      
+      store.data = userData.payload;
 
-      if (!store.data) {
-        store.data = {
-          avatar_url: userData.payload.avatar_url,
-          name: userData.payload.name,
-          email: userData.payload.email
-        };
-      } else {
-        store.data = Object.assign(store.data, userData.payload);
-      }
+      // if (!store.data) {
+      //   store.data = userData.payload;
+      // } else {
+      //   store.data = Object.assign(store.data, userData.payload);
+      // }
 
     }
   },

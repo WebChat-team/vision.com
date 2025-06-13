@@ -6,7 +6,16 @@ export default async function loadUserData(store: AppStore) {
 
     try {
 
-        const response = await fetchNext("http://vision.com:3005/api");
+        const response = await fetchNext(
+            `http://api.vision.com:3000/user/user?detail=account`,
+            {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Origin": "http://vision.com"
+                }
+            }
+        );
 
         const userData = await response.json();
 

@@ -1,3 +1,15 @@
+.auth_account {
+
+    background-color: var(--vision--background-color--default);
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    max-width: 600px;
+
+}
+
 .switch_auth {
 
     padding: 20px;

@@ -1,6 +1,6 @@
-import { UserDataSlice } from "@/app/store/slices/user/types";
-import { FC } from "react";
+import type { UserDataSlice } from "@/app/store/slices/user/types";
+import type { FC } from "react";
 
-type Account = FC<Readonly<UserDataSlice>>
+type UserAccount = FC<Readonly<UserDataSlice>>
 
-export type { Account };
+export type { UserAccount };

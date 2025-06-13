@@ -1,5 +1,6 @@
 // imports ================================================== //
 import getSettingsPopup from "./settingsVideo/index.js";
+import { AnimationJS } from "moveton";
 
 // main ===================================================== //
 export default function addPopupManagerForVideoPlayer(videoApi) {

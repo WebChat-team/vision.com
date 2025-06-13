@@ -8,11 +8,15 @@ import getErrorMessageByStatusCode from "./helper";
 import WrongMessage from "@/features/WrongMessage";
 import InputForm, { validationInput } from "@/shared/ui/InputForm";
 import AuthForm from "@/entities/AuthForm";
+import { useAppDispatch } from "@/app/store/hooks";
+import { setUser } from "@/app/store/slices/user";
+import getUserData from "../api";
 
 // main ===================================================== //
 const LoginForm = () => {
 
 	const [wrongMessage, setWrongMessage] = useState<string | null>(null);
+	const dispatch = useAppDispatch();
 
 	async function handleSubmit(event: FormEvent<CustomLoginForm>) {
 
@@ -34,8 +38,7 @@ const LoginForm = () => {
 			});
 
 			if (response.ok) {
-				const { redirect_url } = await response.json();
-				window.location.replace(redirect_url);
+				dispatch(setUser(await getUserData()));
 			} else {
 				setWrongMessage(
 					getErrorMessageByStatusCode(response.status)

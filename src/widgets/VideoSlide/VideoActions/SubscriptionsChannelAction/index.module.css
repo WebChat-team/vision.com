@@ -1,0 +1,13 @@
+.is_subscribed {
+    animation: fillSub .6s ease-out forwards;
+}
+
+@keyframes fillSub {
+    0% {
+        background-color: initial;
+    }
+    100% {
+        background-color: var(--vision--background-color--subscribed);
+        color: var(--vision--color--main);
+    }
+}

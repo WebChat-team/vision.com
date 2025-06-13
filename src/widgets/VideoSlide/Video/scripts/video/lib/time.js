@@ -3,9 +3,11 @@ function getTimeInMs(videoTime) {
     return Math.round(videoTime * 1000);
 }
 
-function getFormatedTime(timeInSecondd = 0) {
+function getFormatedTime(timeInSeconds = 0) {
 
-    const timeInMilliseconds = Math.floor(timeInSecondd * 1000);
+    if (Number.isNaN(timeInSeconds)) return "";
+
+    const timeInMilliseconds = Math.floor(timeInSeconds * 1000);
     const hours = Math.floor(timeInMilliseconds / 3600000);
     const minutes = Math.floor((timeInMilliseconds % 3600000) / 60000);
     const seconds = Math.floor((timeInMilliseconds % 60000) / 1000);

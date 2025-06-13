@@ -1,74 +1,112 @@
 "use client"
 
+// imports ================================================== //
 import "./styles/index.css";
-import load from "./scripts/index.js";
-import { useEffect, useRef, useState } from "react";
+import getVideo from "./scripts/index.js";
+import { useEffect, useMemo, useRef } from "react";
 import "./styles/index.css";
 import { useAppSelector } from "@/app/store/hooks";
-import { putVideoView, autoUpdateDurationPointVideo } from "./api";
+import { autoUpdateDurationPointVideo, viewVideo } from "./api";
 import type { Video as VideoType } from "./types";
+import useShimmer, { useStyleShimmer } from "@/shared/hooks/useShimmer/useShimmer";
+import { VideoSlice } from "@/app/store/slices/video/types";
+import getClassName from "@/shared/lib/getClassName";
+import { formatUploadDate, pluralize } from "@/shared/lib/formatUploadDate";
+import isProxy from "@/shared/lib/isProxy";
+import styles from "./index.module.css";
+import SelectVideoFile from "@/entities/uploadVideo/SelectVideoFile";
+import SelectVideoFileOnPC from "./SelectVideoFileOnPC";
+import load from "@/entities/uploadVideo/Video/scripts";
 
-const Video: VideoType = ({ id, user_view_duration, is_viewed }) => {
+// main ===================================================== //
+const Video: VideoType = ({ mode, videoData, setVideoFile }) => {
 
-    const VideoRef = useRef<{ currentTime: number, duration: number }>();
-    const IdVideoRef = useRef(id);
-    const userData = useAppSelector(state => state.user.data);
-
-    const path = `http://s3.vision.com:3002/video?v=${id}`;
-
-    useEffect(() => {
-
-        VideoRef.current = load();
-
-        if (VideoRef.current && userData) {
-            VideoRef.current.currentTime = (user_view_duration / 1000);
-        }
-
-    }, [id]);
+    const VideoApiRef = useRef<any>();
+    const shimmerStyle = useStyleShimmer(videoData ? "success" : "loading");
+    const path = (videoData && videoData.path) ? videoData.path : "";
 
     useEffect(() => {
+        VideoApiRef.current = getVideo();
+        VideoApiRef.current.volume = 0;
+    }, []);
 
-        if (userData && is_viewed) {
+    // const VideoApiRef = useRef<any>();
+    // const IdVideoRef = useRef(videoData.id);
+    // const userData = useAppSelector(state => state.user.data);
 
-            let isMounted = true;
+    // useEffect(() => {
 
-            // @ts-ignore
-            autoUpdateDurationPointVideo(IdVideoRef, VideoRef, () => isMounted);
+    //     if (!isProxy(videoData)) {
 
-            return () => {
-                isMounted = false;
-            };
+    //         if (!VideoApiRef.current) {
+    //             VideoApiRef.current = getVideo();
+    //         }
 
-        }
+    //         VideoApiRef.current.volume = 0;
 
-    }, [id, is_viewed]);
+    //         IdVideoRef.current = videoData.id;
+
+    //         if (VideoApiRef.current && userData) {
+    //             VideoApiRef.current.currentTime = (videoData.user_view_duration / 1000);
+    //             // @ts-ignore
+    //             setTimeout(() => {
+    //                 // @ts-ignore
+    //                 VideoApiRef.current.dispatchEvent(new Event("timechange"));
+    //             }, 1000);
+    //         }
+
+    //     }
+
+    // }, [videoData]);
+
+    // useEffect(() => {
+
+    //     if (userData && videoData.is_viewed) {
+
+    //         let isMounted = true;
+
+    //         // @ts-ignore
+    //         autoUpdateDurationPointVideo(IdVideoRef, VideoApiRef.current, () => isMounted);
+
+    //         return () => {
+    //             isMounted = false;
+    //         };
+
+    //     }
+
+    // }, [videoData.id, videoData.is_viewed]);
 
     function handleTimeUpdate() {
 
-        if (
-            VideoRef.current &&
-            !is_viewed &&
-            (0.05 * VideoRef.current.duration) <= VideoRef.current.currentTime
-        ) {
-            putVideoView(id, Math.round(VideoRef.current.currentTime * 1000));
-        }
+        // if (
+        //     VideoApiRef.current &&
+        //     !videoData.is_viewed &&
+        //     (0.05 * VideoApiRef.current.duration) <= VideoApiRef.current.currentTime
+        // ) {
+        //     viewVideo(videoData.id, Math.round(VideoApiRef.current!.currentTime * 1000));
+        // }
 
     }
 
     return (
         <div
             id="container_video"
-            className="video_container adaptive_video"
+            className={getClassName("video_container", "adaptive_video", shimmerStyle)}
         >
+
+            {
+                !videoData &&
+                <SelectVideoFileOnPC setVideoFile={setVideoFile} mode={mode} />
+            }
 
             <div className="container_popup">
                 <div id="darkness" className="darkness"></div>
                 <div id="settings_popup" className="settings_popup">
                     <div className="header_settings_video">
                         <button id="backSetting" className="header_settings_button icon-arrow_left"></button>
-                        <span id="nameSectionSettingPopup">
-                            Настройки
-                        </span>
+                        <h3 id="nameSectionSettingPopup">
+                            Настройки видеоплеера
+                        </h3>
                     </div>
                     <div id="body_settings_popup" className="body_settings_popup">
                         <div className="item_body_settings_popup nav_settings">
@@ -196,13 +234,45 @@ const Video: VideoType = ({ id, user_view_duration, is_viewed }) => {
             <video
                 id="video"
                 tabIndex={-1}
-                className="video_stream"
+                className={"video_stream"}
                 src={path}
-                onTimeUpdate={handleTimeUpdate}
+                onTimeUpdate={videoData ? handleTimeUpdate : undefined}
             >
             </video>
 
             <div id="controls_container" className="controls_container">
+                <div className="top_control_panel">
+                    <div className="info_video">
+                        {
+                            videoData &&
+                            <>
+                                <h1 className="video_name">
+                                    {videoData.name}
+                                </h1>
+                                {
+                                    (typeof videoData.unique_views === "number" && videoData.timestamp && mode === "platform_view") &&
+                                    <div className="video_time_metadata">
+                                        <span className="video_views_counter">
+                                            {`${videoData.unique_views} ${pluralize(videoData.unique_views, "просмотр", "просмотра", "просмотров")}`}
+                                        </span>
+                                        <span className="separator"></span>
+                                        <span className="video_timestamp">
+                                            {formatUploadDate(videoData.timestamp)}
+                                        </span>
+                                    </div>
+                                }
+                            </>
+                        }
+                    </div>
+                    <span id="timeVideo" className="time_video">
+                        <span id="currentTime" className="current_time">
+                            {videoData ? "0:00" : ""}
+                        </span>
+                        <span id="durationTime" className="duration_video">
+                            {videoData ? "0:00" : ""}
+                        </span>
+                    </span>
+                </div>
                 <div id="bottom_control_panel" className="bottom_control_panel">
                     <div id="additional_info" className="additional_info">
                         <div id="selected_frame" className="selected_frame">
@@ -238,11 +308,6 @@ const Video: VideoType = ({ id, user_view_duration, is_viewed }) => {
                                     </div>
                                 </div>
                             </div>
-                            <span id="timeVideo" className="time_video">
-                                <span id="currentTime" className="current_time">0:00</span>
-                                <span className="time_separator">/</span>
-                                <span id="durationTime" className="duration_video">0:00</span>
-                            </span>
                         </div>
                         <div className="right_controls">
                             <button id="fullScreenSwitch" className="player_button" data-icons="fullsize, minisize">

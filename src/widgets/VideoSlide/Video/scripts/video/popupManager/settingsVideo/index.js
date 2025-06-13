@@ -2,6 +2,7 @@
 import rewindVideo from "./rewindVideo.js";
 import getShortcutSettingVideo from "./shortcutsVideo.js";
 import getSettingsSpeedVideo from "./speedVideo.js";
+import { AnimationJS, AnimationCSS } from "moveton";
 
 // main ===================================================== //
 export default function getSettingsPopup(videoApi) {
@@ -103,7 +104,7 @@ export default function getSettingsPopup(videoApi) {
                 });
 
             SETTINGS_POPUP.header.backButton.style.display = "none";
-            SETTINGS_POPUP.header.nameSection.innerText = "Настройки";
+            SETTINGS_POPUP.header.nameSection.innerText = "Настройки видеоплеера";
 
         }
 

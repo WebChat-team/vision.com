@@ -1,0 +1,129 @@
+.profile_container {
+
+    position: relative;
+
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.avatar {
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    margin-bottom: 10px;
+
+}
+
+.bio {
+
+    width: 100%;
+
+    margin: 0;
+
+    color: var(--vision--color--grey);
+    
+    margin-bottom: 20px;
+
+}
+
+.username {
+
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+    padding: 5px 0;
+
+    margin-bottom: 5px;
+
+}
+
+.email_user {
+
+    display: block;
+    width: max-content;
+    margin: 0 auto 10px;
+
+    border-radius: 20px;
+    padding: 8px 0;
+
+    font-weight: bold;
+
+    color: var(--vision--color--grey);
+
+    margin-bottom: 20px;
+
+}
+
+.is_waiting>* {
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    color: transparent;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.avatars_stack {
+    display: flex;
+}
+
+.avatar_stack_item {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    position: relative;
+}
+
+/* Каждый следующий аватар сдвигаем влево */
+.avatar_stack_item:not(:first-child) {
+    margin-left: -10px;
+}
+
+.stats_row {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 20px;
+
+    color: var(--vision--color--main);
+
+    border: none;
+    border-radius: 30px;
+
+    background-color: transparent;
+
+    width: 100%;
+
+    min-height: 65px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+}
+.count_videos {
+    justify-content: center;
+}
+.stats_row:hover {
+
+    background-color: var(--vision--background-color--lite-grey);
+
+}

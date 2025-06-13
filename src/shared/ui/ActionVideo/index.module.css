@@ -1,0 +1,40 @@
+.action_video {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50%;
+
+    padding: 10px;
+
+    border: none;
+
+    color: var(--vision--color--grey);
+
+    cursor: pointer;
+
+    background-color: var(--vision--background-color--lite-grey);
+
+    transition: background-color .15s linear, color .15s linear;
+
+    width: 70px;
+    height: 70px;
+
+}
+.action_video:hover {
+
+    background-color: var(--vision--background-color--grey);
+    
+    color: var(--vision--color);
+
+}
+
+.action_icon {
+
+    border-radius: 50%;
+
+    width: 30px;
+
+}
