@@ -35,7 +35,7 @@ export default function PreviewVideo({ id, user_id, name, author_name, author_av
 
         if (data) {
 
-            dispatch( setVideo({ data: Object.assign(data, { path: `http://s3.vision.com:3002/video?v=${data.id}` }), mode: "platform_view" }) );
+            dispatch( setVideo({ data: Object.assign(data, { path: `http://${process.env.NEXT_PUBLIC_S3_STORAGE_ADDRESS}/video?v=${data.id}` }), mode: "platform_view" }) );
 
             if ("watch" in includesPanels) {
                 dispatch(setActive({ type: "name", name: "watch" }));
@@ -58,7 +58,7 @@ export default function PreviewVideo({ id, user_id, name, author_name, author_av
                     </div>
                 }
                 {/* @ts-ignore */}
-                <video onLoadedMetadata={(event) => { setDuration(formatDuration(event.target.duration)) }} className={styles.preview_photo} src={`http://s3.vision.com:3002/video?v=${id}`}></video>
+                <video onLoadedMetadata={(event) => { setDuration(formatDuration(event.target.duration)) }} className={styles.preview_photo} src={`http://${process.env.NEXT_PUBLIC_S3_STORAGE_ADDRESS}/video?v=${id}`}></video>
                 <span className={styles.time_video}>
                     {duration}
                 </span>

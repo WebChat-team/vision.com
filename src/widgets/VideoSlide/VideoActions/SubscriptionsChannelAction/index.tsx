@@ -35,10 +35,16 @@ const SubscriptionsChannelAction: SubscriptionsChannelActionType = ({ channel_id
         if (userData && channel_id !== null) {
             if (isSubscriber) {
                 const response = await fetch(`/channel/subscriptions/api?channel_id=${channel_id}`, { method: "DELETE" });
-                if (response.ok) setIsSubscriber(false);
+                if (response.ok) {
+                    setIsSubscriber(false);
+                    setTotalLength(value => Number(value) - 1);
+                }
             } else {
                 const response = await fetch(`/channel/subscriptions/api?channel_id=${channel_id}`, { method: "POST" });
-                if (response.ok) setIsSubscriber(true);
+                if (response.ok) {
+                    setIsSubscriber(true);
+                    setTotalLength(value => Number(value) + 1);
+                }
             }
         }
 

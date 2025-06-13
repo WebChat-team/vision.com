@@ -12,11 +12,11 @@ export async function DELETE() {
     );
 
     const response = await fetchNext(
-        `${process.env.API_SERVER_ADDRESS}/auth/terminate_session.php`,
+        `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/auth/terminate_session.php`,
         {
             method: "DELETE",
             headers: {
-                "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
+                "Origin": `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}`,
                 "Authorization": `Bearer ${token}`
             },
         }

@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { ShortUserInfo as ShortUserInfoType } from "./types";
 import getClassName from "@/shared/lib/getClassName";
 
+// @ts-ignore
 const ShortUserInfo: ShortUserInfoType = ({ setSection, name, email, avatar_url, bio, subscriber_count, subscriptions_count, subscribers_avatars, subscriptions_avatars, videos_count }) => {
 
     return (

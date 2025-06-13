@@ -16,11 +16,11 @@ export default async function middleware(request: NextRequest) {
     if (accessToken) {
 
         const responseAuthServer = await fetch(
-            `${process.env.API_SERVER_ADDRESS}/auth/is_valid_access_token.php`,
+            `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/auth/is_valid_access_token.php`,
             {
                 method: "POST",
                 headers: {
-                    "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
+                    "Origin": `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ access_token: accessToken.value })
@@ -40,11 +40,11 @@ export default async function middleware(request: NextRequest) {
     if (!responseNext.cookies.has("access_token") && refreshToken) {
 
         const responseAuthServer = await fetch(
-            `${process.env.API_SERVER_ADDRESS}/auth/update_tokens.php`,
+            `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/auth/update_tokens.php`,
             {
                 method: "POST",
                 headers: {
-                    "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
+                    "Origin": `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}`,
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({

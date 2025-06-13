@@ -68,7 +68,7 @@ const PublishVideoForm: PublishVideoFormType = ({ videoFile }) => {
             if (id_video) {
                 const dataVideoInfo = await getVideoInfo(id_video);
                 if (dataVideoInfo) {
-                    dispatch(setVideo({ data: Object.assign(dataVideoInfo, { path: `http://s3.vision.com:3002/video?v=${dataVideoInfo.id}` }), mode: "platform_view" }));
+                    dispatch(setVideo({ data: Object.assign(dataVideoInfo, { path: `http://${process.env.NEXT_PUBLIC_S3_STORAGE_ADDRESS}/video?v=${dataVideoInfo.id}` }), mode: "platform_view" }));
                 }
             }
         }
@@ -113,7 +113,7 @@ const PublishVideoForm: PublishVideoFormType = ({ videoFile }) => {
                     checked={videoData.has_comments}
                 />
                 <SelectForm value={videoData.level_access} name="levelAccess" description="Выбор уровня доступа">
-                    <Option value="private">Ограниченный</Option>
+                    <Option value="limited">Ограниченный</Option>
                     <Option value="public">Общедоступный</Option>
                     <Option value="link">По ссылке</Option>
                 </SelectForm>

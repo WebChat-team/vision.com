@@ -1,6 +1,5 @@
 "use client"
 
-import UploadVideo from "@/entities/uploadVideo";
 import styles from "./index.module.css";
 import ShortUserInfo from "./ShortUserInfo";
 import type { UserAccount as UserAccountType } from "./types";
@@ -43,7 +42,6 @@ const UserAccount: UserAccountType = (userData) => {
             </div>
             <div className={styles.conatiner_section}>
                 {section === "subscribers" && <Subscribers user_id={userData.id} />}
-                {section === "upload" && <UploadVideo />}
                 {section === "videos" && <ListVideos user_id={userData.id} />}
             </div>
         </div>

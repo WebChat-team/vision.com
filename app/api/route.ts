@@ -6,17 +6,15 @@ import fetchNext from "@/shared/lib/fetch";
 // main ===================================================== //
 export async function GET() {
 
-    const response = await fetchNext(
-        `${process.env.API_SERVER_ADDRESS}/user/user?detail=account`,
+    return await fetchNext(
+        `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/user/user?detail=account`,
         {
             method: "GET",
             credentials: "include",
             headers: {
-                "Origin": `http://${process.env.HOST}:${process.env.PORT}`
+                "Origin": `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}`
             }
         }
     );
-
-    return response;
 
 }
