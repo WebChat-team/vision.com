@@ -16,11 +16,11 @@ export default async function middleware(request: NextRequest) {
     if (accessToken) {
 
         const responseAuthServer = await fetch(
-            "http://api.vision.com:3000/auth/is_valid_access_token.php",
+            `${process.env.API_SERVER_ADDRESS}/auth/is_valid_access_token.php`,
             {
                 method: "POST",
                 headers: {
-                    "Origin": "http://id.vision.com",
+                    "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ access_token: accessToken.value })
@@ -40,11 +40,11 @@ export default async function middleware(request: NextRequest) {
     if (!responseNext.cookies.has("access_token") && refreshToken) {
 
         const responseAuthServer = await fetch(
-            "http://api.vision.com:3000/auth/update_tokens.php",
+            `${process.env.API_SERVER_ADDRESS}/auth/update_tokens.php`,
             {
                 method: "POST",
                 headers: {
-                    "Origin": "http://id.vision.com",
+                    "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({

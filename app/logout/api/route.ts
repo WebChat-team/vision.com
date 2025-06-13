@@ -12,11 +12,11 @@ export async function DELETE() {
     );
 
     const response = await fetchNext(
-        "http://api.vision.com:3000/auth/terminate_session.php",
+        `${process.env.API_SERVER_ADDRESS}/auth/terminate_session.php`,
         {
             method: "DELETE",
             headers: {
-                "Origin": "http://vision.com",
+                "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
                 "Authorization": `Bearer ${token}`
             },
         }

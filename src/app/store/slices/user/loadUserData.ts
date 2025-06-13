@@ -6,13 +6,17 @@ export default async function loadUserData(store: AppStore) {
 
     try {
 
+        console.log(
+            `http://${process.env.HOST}:${process.env.PORT}`
+        );
+        
         const response = await fetchNext(
-            `http://api.vision.com:3000/user/user?detail=account`,
+            `${process.env.API_SERVER_ADDRESS}/user/user?detail=account`,
             {
                 method: "GET",
                 credentials: "include",
                 headers: {
-                    "Origin": "http://vision.com"
+                    "Origin": `http://${process.env.HOST}:${process.env.PORT}`
                 }
             }
         );

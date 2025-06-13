@@ -12,7 +12,7 @@ export async function GET(req: Request) {
             method: "GET",
             credentials: "include",
             headers: {
-                "Origin": "http://vision.com"
+                "Origin": `http://${process.env.HOST}:${process.env.PORT}`
             }
         }
     );

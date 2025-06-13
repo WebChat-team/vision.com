@@ -13,7 +13,7 @@ export async function GET(req: Request) {
             method: "GET",
             credentials: "include",
             headers: {
-                "Origin": "http://vision.com"
+                "Origin": `http://${process.env.HOST}:${process.env.PORT}`
             }
         }
     );
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         method: "POST",
         credentials: "include",
         headers: {
-            "Origin": "http://vision.com",
+            "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
             'Content-Type': 'multipart/form-data'
         },
         body: await request.formData(),
@@ -40,7 +40,7 @@ export async function PUT(request: Request) {
         method: "PUT",
         credentials: "include",
         headers: {
-            "Origin": "http://vision.com",
+            "Origin": `http://${process.env.HOST}:${process.env.PORT}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(await request.json()),
