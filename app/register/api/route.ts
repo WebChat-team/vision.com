@@ -1,4 +1,5 @@
 // imports ================================================== //
+import fetchNext from "@/shared/lib/fetch";
 import transferCookieToClient from "@/shared/lib/transferCookieToClient";
 import { NextResponse } from "next/server";
 
@@ -7,7 +8,10 @@ export async function POST(req: Request) {
 
     const { email, password } = await req.json();
 
-    const response = await fetch(
+    console.log(email, password);
+    console.log(`http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/user/register`);
+
+    const response = await fetchNext(
         `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/user/register`,
         {
             method: "POST",
