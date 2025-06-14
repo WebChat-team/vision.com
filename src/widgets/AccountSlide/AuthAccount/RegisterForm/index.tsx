@@ -39,6 +39,9 @@ const RegisterForm = () => {
 					password: password.value
 				})
 			});
+			
+			console.log(response);
+			console.log(response.headers.getSetCookie())
 
 			if (response.ok) {
 				dispatch(setUser(await getUserData()));
