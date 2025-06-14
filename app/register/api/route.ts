@@ -1,14 +1,14 @@
 // imports ================================================== //
 import fetchNext from "@/shared/lib/fetch";
-import transferCookieToClient from "@/shared/lib/transferCookieToClient";
-import { NextResponse } from "next/server";
+// import transferCookieToClient from "@/shared/lib/transferCookieToClient";
+// import { NextResponse } from "next/server";
 
 // main ===================================================== //
 export async function POST(req: Request) {
 
     const { email, password } = await req.json();
 
-    const response = await fetchNext(
+    return await fetchNext(
         `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/user/register`,
         {
             method: "POST",
@@ -21,14 +21,13 @@ export async function POST(req: Request) {
         }
     );
 
-    console.log(response);
-
-    if (response.ok) {
-        const responseRedirect = new NextResponse(JSON.stringify({ redirect_url: `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}` }));
-        transferCookieToClient(responseRedirect.cookies, response.headers.getSetCookie());
-        return responseRedirect;
-    } else {
-        return response;
-    }
+    // if (response.ok) {
+    //     const responseRedirect = new NextResponse(JSON.stringify({ redirect_url: `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}` }));
+    //     transferCookieToClient(responseRedirect.cookies, response.headers.getSetCookie());
+    //     console.log(response);
+    //     return responseRedirect;
+    // } else {
+    //     return response;
+    // }
 
 }
