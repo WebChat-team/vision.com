@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
     const { email, password } = await req.json();
 
-    const response = await fetchNext(
+    return  await fetchNext(
         `http://${process.env.NEXT_PUBLIC_API_SERVER_ADDRESS}/user/register`,
         {
             method: "POST",
@@ -20,10 +20,6 @@ export async function POST(req: Request) {
             body: JSON.stringify({ email, password })
         }
     );
-
-    console.log(response.headers.getSetCookie());
-
-    return response;
 
     // if (response.ok) {
     //     const responseRedirect = new NextResponse(JSON.stringify({ redirect_url: `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}` }));
